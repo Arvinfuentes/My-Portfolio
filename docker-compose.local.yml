@@ -1,0 +1,10 @@
+# Local run: docker compose -f docker-compose.local.yml up --build  ->  http://localhost:8080
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
